@@ -1,33 +1,54 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="/styles.css">
+    <title>Cotizador de Servicios Rápido</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Hello everybody!</h1>
-    <p>This is an example of what you can do with HTML, JavaScript and CSS</p>
-    <section>
-        <div class="country-list">
-            <ul>
-                <li><a href="#" >Venezuela</li></a></a>
-                <li><a href="#" >Peru</a></li>
-                <li><a href="#" >Argentina</a></li>
-                <li><a href="#" >Brasil</a></li>
-            </ul>
+
+    <div class="cotizador-container">
+        <h1>Calculadora de Cotizaciones</h1>
+        <p class="subtitle">Calcula un estimado rápido para tu servicio técnico o web.</p>
+
+        <form id="quote-form">
+            <!-- Selección de Servicio -->
+            <div class="form-group">
+                <label for="service-type">Selecciona el tipo de servicio:</label>
+                <select id="service-type" required>
+                    <option value="" disabled selected>Elige una opción...</option>
+                    <option value="50">Mantenimiento Preventivo   ($50)</option>
+                    <option value="120">Instalación de Sistema   ($90)</option>
+                    <option value="80">Diagnóstico y Reparación   ($30)</option>
+                </select>
+            </div>
+
+            <!-- Cantidad de unidades u horas -->
+            <div class="form-group">
+                <label for="units">Cantidad de unidades / horas:</label>
+                <input type="number" id="units" min="1" value="1" required>
+            </div>
+
+            <!-- Opciones extra -->
+            <div class="form-group checkbox-group">
+                <input type="checkbox" id="express">
+                <label for="express">Servicio de Urgencia / Express (+$30)</label>
+            </div>
+
+            <button type="submit" class="btn-calcular">Calcular Cotización</button>
+        </form>
+
+        <!-- Resultado -->
+        <div id="result-box" class="result-hidden">
+            <h3>Estimado Total:</h3>
+            <p id="total-price">$0.00</p>
         </div>
-    </section>
-    <section>
-        <h2>Venezuela</h2>
-        <p>A beautiful country full of beaches and tropical places
-        <figure>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/9/96/Barbados_beach.jpg?utm_source=es.wikipedia.org&utm_campaign=index&utm_content=original" alt="Beautiful beach" width="440px" height="280px">
-            <figcaption>Venezuela beach</figcaption>
-        </figure>
-        </p>
-    </section>
-<script src="scripts.js"></script>  
+        <div>
+            <button type="button" class="clear-btn" id="btn-clear">Limpiar</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
